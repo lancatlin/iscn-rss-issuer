@@ -9,6 +9,11 @@
     />
     <p>{{ rssLink }}</p>
     <button @click="() => load(rssLink)">Load</button>
+    <div>
+      <div v-for="article in articles" :key="article.guid">
+        <p>{{ article.title }}</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -17,15 +22,14 @@ export default {
   data() {
     return {
       rssLink: "",
+      articles: [],
     };
   },
   methods: {
     async load(rssLink) {
       console.log(rssLink);
-      const res = await fetch(rssLink);
-      const parser = new DOMParser();
-      parser.parseFromString(res.text());
-      console.log(parser);
+      const res = await fetch(`/api?url=${rssLink}`);
+      this.articles = await res.json();
     },
   },
 };

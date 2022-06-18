@@ -7,8 +7,9 @@ async function parse(body) {
   console.log(feed);
 
   return feed.items.map(
-    ({ title, link, pubDate, creator, description, contentSnippet }) => ({
+    ({ title, link, pubDate, creator, description, contentSnippet, guid }) => ({
       title,
+      guid,
       link,
       pubDate,
       stakeholder: {

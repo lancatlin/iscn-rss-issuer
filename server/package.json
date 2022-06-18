@@ -1,0 +1,12 @@
+{
+  "name": "iscn-rss-issuer-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "express": "^4.18.1",
+    "rss-parser": "^3.12.0"
+  }
+}
